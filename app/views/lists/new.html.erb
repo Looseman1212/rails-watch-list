@@ -1,0 +1,7 @@
+<div class="container">
+  <h1 class="text-center">Enter the name of your new list!</h1>
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+</div>

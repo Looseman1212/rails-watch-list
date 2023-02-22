@@ -1,0 +1,10 @@
+<div class="container py-3">
+  <h1><%= @list.name %></h1>
+  <ul>
+    <% @bookmarks_w_associated_list.each do |bookmark| %>
+      <% movie = Movie.find_by(id: bookmark.movie_id) %>
+      <li><%= movie.title %>
+      <%= bookmark.comment %></li>
+    <% end %>
+  </ul>
+</div>
