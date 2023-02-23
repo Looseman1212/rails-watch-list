@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid mx-5">
+    <a class="navbar-brand fs-1" href="#">Watching List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% is_lists_index = controller_name == "lists" && action_name == "index" %>
+        <% unless is_lists_index %>
+          <li class="nav-item">
+            <%# <a class="nav-link active" aria-current="page" href="#">See All Lists</a> %>
+            <%= link_to "See All Lists", lists_path, class: "nav-link active" %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add new list", new_list_path, class: "btn btn-outline-success" %>
+    </div>
+  </div>
+</nav>

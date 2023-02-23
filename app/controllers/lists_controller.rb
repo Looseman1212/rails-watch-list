@@ -18,6 +18,7 @@ class ListsController < ApplicationController
     @list.save
     redirect_to lists_path
   end
+
   private
 
   def set_list

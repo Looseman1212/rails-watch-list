@@ -1,10 +1,12 @@
-<div class="container py-3">
-  <h1><%= @list.name %></h1>
-  <ul>
-    <% @bookmarks_w_associated_list.each do |bookmark| %>
-      <% movie = Movie.find_by(id: bookmark.movie_id) %>
-      <li><%= movie.title %>
-      <%= bookmark.comment %></li>
-    <% end %>
-  </ul>
-</div>
+<h1><%= @list.name %></h1>
+<ul>
+  <% @bookmarks_w_associated_list.each do |bookmark| %>
+    <li><strong><%= bookmark.movie.title %>:</strong>
+    <%= bookmark.comment %></li>
+    <%= link_to "", bookmark_path(bookmark), class: "fa-solid fa-trash fs-6 text-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</ul>
+<%= link_to "Add bookmark to this list!", new_list_bookmark_path(params[:id]), class: "btn btn-outline-primary" %>
+
+
+<% # in link_to, data required otherwise link sends get request  %>

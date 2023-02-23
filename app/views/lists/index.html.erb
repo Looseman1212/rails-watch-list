@@ -1,8 +1,13 @@
-<div class="container pt-3">
-  <h1>Heres ya lists ya dorgue</h1>
-  <ul>
+  <h1 class="text-center">Heres ya lists ya dorgue</h1>
+  <div class="cards py-2">
     <% @lists.each do |list| %>
-      <li><%= list.name %></li>
+      <div class="single-card">
+        <div class="card-image"></div>
+        <div class="card-info">
+          <%= link_to list.name, list_path(list), class: "text-decoration-none" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
-</div>
+  </div>
+
+  <%# <%= link_to '<i class="fa-solid fa-plus"></i>'.html_safe, new_list_bookmark_path(list) %>
