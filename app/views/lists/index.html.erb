@@ -1,13 +1,16 @@
+<%= render "shared/homebanner" %>
+<div class="container p-4">
   <h1 class="text-center">Heres ya lists ya dorgue</h1>
-  <div class="cards py-2">
+  <div class="cards py-2 mt-4">
     <% @lists.each do |list| %>
-      <div class="single-card">
-        <div class="card-image"></div>
-        <div class="card-info">
-          <%= link_to list.name, list_path(list), class: "text-decoration-none" %>
+      <%= link_to list_path(list) do %>
+        <div class="single-card">
+          <div class="card-image"></div>
+          <div class="card-info"><%= list.name %></div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
+</div>
 
   <%# <%= link_to '<i class="fa-solid fa-plus"></i>'.html_safe, new_list_bookmark_path(list) %>

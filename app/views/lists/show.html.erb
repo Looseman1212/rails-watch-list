@@ -1,12 +1,13 @@
-<h1><%= @list.name %></h1>
-<ul>
-  <% @bookmarks_w_associated_list.each do |bookmark| %>
-    <li><strong><%= bookmark.movie.title %>:</strong>
-    <%= bookmark.comment %></li>
-    <%= link_to "", bookmark_path(bookmark), class: "fa-solid fa-trash fs-6 text-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-</ul>
-<%= link_to "Add bookmark to this list!", new_list_bookmark_path(params[:id]), class: "btn btn-outline-primary" %>
-
+<%= render "shared/listbanner" %>
+<div class="container p-4">
+  <ul>
+    <% @bookmarks_w_associated_list.each do |bookmark| %>
+      <li><strong><%= bookmark.movie.title %>:</strong>
+      <%= bookmark.comment %></li>
+      <%= link_to "", bookmark_path(bookmark), class: "fa-solid fa-trash fs-6 text-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
+  </ul>
+  <%= link_to "Add bookmark to this list!", new_list_bookmark_path(params[:id]), class: "btn btn-outline-primary" %>
+</div>
 
 <% # in link_to, data required otherwise link sends get request  %>
